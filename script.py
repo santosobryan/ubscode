@@ -1,7 +1,16 @@
 import re
 
-def generate_gree_expression(valid_strings, invalid_strings):    
-    patterns = []
+def generate_gree_expression(valid_strings, invalid_strings):
+    """
+    Generate a regex pattern that matches all valid strings and rejects all invalid strings.
+    
+    Assumptions:
+    1. The pattern should be as specific as possible while covering all valid cases
+    2. We prioritize common regex patterns like character classes, anchors, and quantifiers
+    3. We try simpler patterns first before complex ones
+    4. The pattern must match the entire string (anchored)
+    """
+    
     if not valid_strings:
         return '^$'
     # Basic character class patterns
